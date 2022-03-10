@@ -76,6 +76,7 @@ namespace Groceries
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
+            //this is a test
         }
     }
 }
