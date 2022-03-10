@@ -16,9 +16,12 @@ namespace Groceries
         {
             InitializeComponent();
         }
+        //continue on 1:20:54mnts
 
-
-        //continue mnt 44
+        //declare vegetable names units using 2-dimentional array with initializer list
+        private string [ , ] vegetables = { { "Avocades", "each"},{ "Green Beans", "per pound"},
+            { "Mushrooms", "per 8 oz"},{ "Weet Onions", "per pound"} };
+        private decimal[] vegetablePrices = { 1.25m, 1.49m, 1.69m, 0.99m };
         private void Form1_Load(object sender, EventArgs e)
         {
             int index;
@@ -54,11 +57,13 @@ namespace Groceries
         #region Hidden Declaration code
         // declare fruit prices using initializer list
         private decimal[] prices = { 0.69m, 1.29m, 2.99m, 1.99m };
-        private string[] units = { "per pound", "pewr pound", "each", "per pound" };
+        private string[] units = { "per pound", "per pound", "each", "per pound" };
         #endregion
         private void btnPurchase_Click(object sender, EventArgs e)
         {
-            if(lstFruit.SelectedIndex == -1)
+            
+
+            if (lstFruit.SelectedIndex == -1)
             {
                 lblMessage.Text = "Please select a fruit";
             }
@@ -66,8 +71,14 @@ namespace Groceries
             {
                 string message = "You are purchasing: ";
 
-                message += Environment.NewLine + lstFruit.SelectedItems.ToString() + " at " + 
-                    prices[lstFruit.SelectedIndex].ToString("C") + " " + units[lstFruit.SelectedIndex];
+                Item myItem = new Item();
+
+                myItem.Description = lstFruit.SelectedIndex.ToString();
+                myItem.Price = prices[lstFruit.SelectedIndex];
+                myItem.Units = units[lstFruit.SelectedIndex].ToString();    
+
+               //message += Environment.NewLine + lstFruit.SelectedItems.ToString() + " at " + 
+               //    prices[lstFruit.SelectedIndex].ToString("C") + " " + units[lstFruit.SelectedIndex];
 
                 lblMessage.Text = message;
             }
@@ -76,7 +87,7 @@ namespace Groceries
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
-            //this is a test
+            
         }
     }
 }
