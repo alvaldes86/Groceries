@@ -51,6 +51,11 @@ namespace Groceries
                 lstFruit.Items.Add(fruit);
             }
 
+            for(index = 0;index <= vegetables.GetUpperBound(0); index++)
+            {
+                lstVegetables.Items.Add(vegetables[index, 0]);
+            }
+
             return;
         }
 
@@ -63,9 +68,9 @@ namespace Groceries
         {
             
 
-            if (lstFruit.SelectedIndex == -1)
+            if (lstFruit.SelectedIndex == -1 && lstVegetables.SelectedIndex == -1)
             {
-                lblMessage.Text = "Please select a fruit";
+                lblMessage.Text = "Please select a fruit or vegetable";
             }
             else
             {

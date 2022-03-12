@@ -34,7 +34,7 @@
             this.lblVegetables = new System.Windows.Forms.Label();
             this.lblShoppingCart = new System.Windows.Forms.Label();
             this.lstFruit = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lstVegetables = new System.Windows.Forms.ListBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.btnPurchase = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -101,14 +101,14 @@
             this.lstFruit.Size = new System.Drawing.Size(360, 132);
             this.lstFruit.TabIndex = 5;
             // 
-            // listBox2
+            // lstVegetables
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(31, 362);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(360, 132);
-            this.listBox2.TabIndex = 6;
+            this.lstVegetables.FormattingEnabled = true;
+            this.lstVegetables.ItemHeight = 16;
+            this.lstVegetables.Location = new System.Drawing.Point(31, 362);
+            this.lstVegetables.Name = "lstVegetables";
+            this.lstVegetables.Size = new System.Drawing.Size(360, 132);
+            this.lstVegetables.TabIndex = 6;
             // 
             // listBox3
             // 
@@ -128,7 +128,7 @@
             this.btnPurchase.TabIndex = 8;
             this.btnPurchase.Text = "Purchase";
             this.btnPurchase.UseVisualStyleBackColor = true;
-            this.btnPurchase.Click += new System.EventHandler(this.btnPurchase_Click);       
+            this.btnPurchase.Click += new System.EventHandler(this.btnPurchase_Click);
             // 
             // btnClear
             // 
@@ -169,7 +169,7 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnPurchase);
             this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.lstVegetables);
             this.Controls.Add(this.lstFruit);
             this.Controls.Add(this.lblShoppingCart);
             this.Controls.Add(this.lblVegetables);
@@ -192,7 +192,7 @@
         private System.Windows.Forms.Label lblVegetables;
         private System.Windows.Forms.Label lblShoppingCart;
         private System.Windows.Forms.ListBox lstFruit;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lstVegetables;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Button btnPurchase;
         private System.Windows.Forms.Button btnClear;
