@@ -35,7 +35,7 @@
             this.lblShoppingCart = new System.Windows.Forms.Label();
             this.lstFruit = new System.Windows.Forms.ListBox();
             this.lstVegetables = new System.Windows.Forms.ListBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.lstCart = new System.Windows.Forms.ListBox();
             this.btnPurchase = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -110,14 +110,14 @@
             this.lstVegetables.Size = new System.Drawing.Size(360, 132);
             this.lstVegetables.TabIndex = 6;
             // 
-            // listBox3
+            // lstCart
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(435, 170);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(326, 324);
-            this.listBox3.TabIndex = 7;
+            this.lstCart.FormattingEnabled = true;
+            this.lstCart.ItemHeight = 16;
+            this.lstCart.Location = new System.Drawing.Point(435, 170);
+            this.lstCart.Name = "lstCart";
+            this.lstCart.Size = new System.Drawing.Size(326, 324);
+            this.lstCart.TabIndex = 7;
             // 
             // btnPurchase
             // 
@@ -168,7 +168,7 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnPurchase);
-            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.lstCart);
             this.Controls.Add(this.lstVegetables);
             this.Controls.Add(this.lstFruit);
             this.Controls.Add(this.lblShoppingCart);
@@ -193,7 +193,7 @@
         private System.Windows.Forms.Label lblShoppingCart;
         private System.Windows.Forms.ListBox lstFruit;
         private System.Windows.Forms.ListBox lstVegetables;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox lstCart;
         private System.Windows.Forms.Button btnPurchase;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnExit;

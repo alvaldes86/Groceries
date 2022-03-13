@@ -12,14 +12,15 @@ namespace Groceries
 {
     public partial class Form1 : Form
     {
+        private List<Item> myCart = new List<Item>();
         public Form1()
         {
             InitializeComponent();
         }
-        //continue on 1:20:54mnts
+        //continue on 1:33:54mnts
 
         //declare vegetable names units using 2-dimentional array with initializer list
-        private string [ , ] vegetables = { { "Avocades", "each"},{ "Green Beans", "per pound"},
+        private string [,] vegetables = { { "Avocades", "each"},{ "Green Beans", "per pound"},
             { "Mushrooms", "per 8 oz"},{ "Weet Onions", "per pound"} };
         private decimal[] vegetablePrices = { 1.25m, 1.49m, 1.69m, 0.99m };
         private void Form1_Load(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace Groceries
                 lstFruit.Items.Add(fruit);
             }
 
-            for(index = 0;index <= vegetables.GetUpperBound(0); index++)
+            for (index = 0; index <= vegetables.GetUpperBound(0); index++)
             {
                 lstVegetables.Items.Add(vegetables[index, 0]);
             }
@@ -66,7 +67,7 @@ namespace Groceries
         #endregion
         private void btnPurchase_Click(object sender, EventArgs e)
         {
-            
+
 
             if (lstFruit.SelectedIndex == -1 && lstVegetables.SelectedIndex == -1)
             {
@@ -75,22 +76,54 @@ namespace Groceries
             else
             {
                 string message = "You are purchasing: ";
+                if (lstFruit.SelectedIndex != -1)
+                {
 
-                Item myItem = new Item();
+                    Item myItem = new Item();
 
-                myItem.Description = lstFruit.SelectedIndex.ToString();
-                myItem.Price = prices[lstFruit.SelectedIndex];
-                myItem.Units = units[lstFruit.SelectedIndex].ToString();    
+                    myItem.Description = lstFruit.SelectedIndex.ToString();
+                    myItem.Price = prices[lstFruit.SelectedIndex];
+                    myItem.Units = units[lstFruit.SelectedIndex] ;
 
-               //message += Environment.NewLine + lstFruit.SelectedItems.ToString() + " at " + 
-               //    prices[lstFruit.SelectedIndex].ToString("C") + " " + units[lstFruit.SelectedIndex];
+                    myCart.Add(myItem);
+                    lstCart.Items.Add(myItem.ToString());
 
+                    message += Environment.NewLine + myItem.ToString();
+
+                    //message += Environment.NewLine + lstFruit.SelectedItems.ToString() + " at " + 
+                    //    prices[lstFruit.SelectedIndex].ToString("C") + " " + units[lstFruit.SelectedIndex];
+                   
+                }
+                if (lstVegetables.SelectedIndex != -1)
+                {
+
+                    Item myItem = new Item();
+
+                    myItem.Description = lstVegetables.SelectedIndex.ToString();
+                    myItem.Price = vegetablePrices[lstVegetables.SelectedIndex];
+                    myItem.Units = vegetables[lstVegetables.SelectedIndex, 1];
+
+                    myCart.Add(myItem);
+                    lstCart.Items.Add(myItem.ToString());
+
+                    message += Environment.NewLine + myItem.ToString();  
+                }
                 lblMessage.Text = message;
             }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            #region MyRegion
+            string message = string.Empty;
+
+            foreach(Item item in myCart)
+            {
+                message += Environment.NewLine + item.ToString();
+            }
+            MessageBox.Show(message, "My Cart");
+            #endregion
+
             Close();
             
         }
