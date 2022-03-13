@@ -20,7 +20,8 @@ namespace Groceries
         //continue on 1:33:54mnts
 
         //declare vegetable names units using 2-dimentional array with initializer list
-        private string [,] vegetables = { { "Avocades", "each"},{ "Green Beans", "per pound"},
+        private string [,
+            ] vegetables = { { "Avocades", "each"},{ "Green Beans", "per pound"},
             { "Mushrooms", "per 8 oz"},{ "Weet Onions", "per pound"} };
         private decimal[] vegetablePrices = { 1.25m, 1.49m, 1.69m, 0.99m };
         private void Form1_Load(object sender, EventArgs e)
@@ -60,6 +61,7 @@ namespace Groceries
             return;
         }
 
+        //Purchase
         #region Hidden Declaration code
         // declare fruit prices using initializer list
         private decimal[] prices = { 0.69m, 1.29m, 2.99m, 1.99m };
@@ -81,7 +83,7 @@ namespace Groceries
 
                     Item myItem = new Item();
 
-                    myItem.Description = lstFruit.SelectedIndex.ToString();
+                    myItem.Description = lstFruit.SelectedItem.ToString();
                     myItem.Price = prices[lstFruit.SelectedIndex];
                     myItem.Units = units[lstFruit.SelectedIndex] ;
 
@@ -97,9 +99,10 @@ namespace Groceries
                 if (lstVegetables.SelectedIndex != -1)
                 {
 
-                    Item myItem = new Item();
+                    Item myItem = new Item(lstVegetables.SelectedItem.ToString(),vegetablePrices[lstVegetables.SelectedIndex],
+                       vegetables[lstVegetables.SelectedIndex, 1]);
 
-                    myItem.Description = lstVegetables.SelectedIndex.ToString();
+                    myItem.Description = lstVegetables.SelectedItem.ToString();
                     myItem.Price = vegetablePrices[lstVegetables.SelectedIndex];
                     myItem.Units = vegetables[lstVegetables.SelectedIndex, 1];
 
@@ -112,6 +115,7 @@ namespace Groceries
             }
         }
 
+        //Exit statement
         private void btnExit_Click(object sender, EventArgs e)
         {
             #region MyRegion
