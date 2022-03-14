@@ -17,7 +17,7 @@ namespace Groceries
         {
             InitializeComponent();
         }
-        //continue on 1:33:54mnts
+        
 
         //declare vegetable names units using 2-dimentional array with initializer list
         private string [,
@@ -92,10 +92,7 @@ namespace Groceries
 
                     message += Environment.NewLine + myItem.ToString();
                     lstFruit.ClearSelected();
-
-                    //message += Environment.NewLine + lstFruit.SelectedItems.ToString() + " at " + 
-                    //    prices[lstFruit.SelectedIndex].ToString("C") + " " + units[lstFruit.SelectedIndex];
-
+                 
                 }
                 if (lstVegetables.SelectedIndex != -1)
                 {
