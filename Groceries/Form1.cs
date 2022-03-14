@@ -91,25 +91,23 @@ namespace Groceries
                     lstCart.Items.Add(myItem.ToString());
 
                     message += Environment.NewLine + myItem.ToString();
+                    lstFruit.ClearSelected();
 
                     //message += Environment.NewLine + lstFruit.SelectedItems.ToString() + " at " + 
                     //    prices[lstFruit.SelectedIndex].ToString("C") + " " + units[lstFruit.SelectedIndex];
-                   
+
                 }
                 if (lstVegetables.SelectedIndex != -1)
                 {
 
                     Item myItem = new Item(lstVegetables.SelectedItem.ToString(),vegetablePrices[lstVegetables.SelectedIndex],
-                       vegetables[lstVegetables.SelectedIndex, 1]);
-
-                    myItem.Description = lstVegetables.SelectedItem.ToString();
-                    myItem.Price = vegetablePrices[lstVegetables.SelectedIndex];
-                    myItem.Units = vegetables[lstVegetables.SelectedIndex, 1];
+                       vegetables[lstVegetables.SelectedIndex, 1]);                   
 
                     myCart.Add(myItem);
                     lstCart.Items.Add(myItem.ToString());
 
-                    message += Environment.NewLine + myItem.ToString();  
+                    message += Environment.NewLine + myItem.ToString(); 
+                    lstVegetables.ClearSelected();
                 }
                 lblMessage.Text = message;
             }
@@ -130,6 +128,20 @@ namespace Groceries
 
             Close();
             
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //clear fruit selection
+            lstFruit.ClearSelected();
+            lstVegetables.ClearSelected();
+
+            lstCart.Items.Clear();
+
+            lblMessage.ResetText();
+
+            //set focus
+            lstFruit.Focus();
         }
     }
 }
